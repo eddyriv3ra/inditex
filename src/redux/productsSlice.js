@@ -3,6 +3,7 @@ import { fetchData } from 'api';
 
 const initialState = {
   data: [],
+  searchValue: '',
 };
 
 export const fetchProductsAsync = createAsyncThunk(
@@ -34,6 +35,9 @@ export const productsSlice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload;
     },
+    searchValue: (state, action) => {
+      state.searchValue = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProductsAsync.fulfilled, (state, action) => {
@@ -43,7 +47,7 @@ export const productsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } =
+export const { increment, decrement, incrementByAmount, searchValue } =
   productsSlice.actions;
 
 export default productsSlice.reducer;
