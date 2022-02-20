@@ -1,10 +1,15 @@
+import { FiShoppingCart } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 
 const Header = () => {
   return (
-    <div className="header">
-      <h1 className="header__title">CELLPHONES</h1>
-    </div>
+    <nav className="header">
+      <Link to="/">
+        <h1 className="header__title">CELLPHONES</h1>
+      </Link>
+      <FiShoppingCart className="header__icon" />
+    </nav>
   );
 };
 

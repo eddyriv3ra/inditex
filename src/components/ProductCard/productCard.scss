@@ -1,0 +1,30 @@
+.productCard {
+  width: 200px;
+  height: fit-content;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  display: grid;
+  border-radius: 6px;
+  background-color: #f5f7f8;
+  box-shadow: 0 1px 6px rgb(31 31 31 / 12%), 0 1px 4px rgb(31 31 31 / 12%);
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    text-align: center;
+
+    &__description {
+      font-size: 14px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+    }
+
+    &__price {
+      margin: 0.5rem;
+    }
+  }
+}

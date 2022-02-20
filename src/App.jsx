@@ -1,5 +1,6 @@
-import Header from 'components/Header';
 import { Routes, Route } from 'react-router-dom';
+import Header from 'components/Header';
+import Home from 'pages/Home';
 import './App.css';
 
 const App = () => {
@@ -7,8 +8,8 @@ const App = () => {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<div>main page</div>} />
-        <Route path="/about" element={<div>Page Description</div>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<Home />} />
       </Routes>
     </div>
   );
