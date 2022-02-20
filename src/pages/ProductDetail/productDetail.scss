@@ -1,3 +1,5 @@
+@import 'styles/abstracts/variables.scss';
+
 .productDetail {
   width: 70%;
   margin: auto;
@@ -11,6 +13,16 @@
 
     &__description {
       height: 50%;
+
+      &__storage {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+        & > h3 {
+          text-align: center;
+        }
+      }
     }
 
     &__action {
@@ -35,5 +47,36 @@
     align-items: center;
     font-size: 1.7rem;
     flex: 1;
+  }
+
+  .storage-buttons {
+    width: 5rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .add {
+    background-color: $primary-color;
+    width: 20rem;
+    height: 4rem;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .buttons_container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .add_container {
+    display: flex;
+    justify-content: center;
   }
 }
