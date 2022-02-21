@@ -1,6 +1,5 @@
 .productCard {
-  width: 200px;
-  height: fit-content;
+  width: 20rem;
   padding: 0.5rem;
   box-sizing: border-box;
   display: grid;
@@ -15,13 +14,6 @@
     margin-bottom: 0.5rem;
     align-items: center;
     text-align: center;
-
-    &__description {
-      font-size: 14px;
-      height: 54px;
-      display: flex;
-      align-items: center;
-    }
 
     &__price {
       margin: 0.5rem;

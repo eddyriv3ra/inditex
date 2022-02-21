@@ -39,4 +39,15 @@
     right: -20px;
     top: -5px;
   }
+
+  .breadcrumbs {
+    font-size: 2rem;
+    color: white;
+  }
+
+  .link {
+    &:hover {
+      color: blue;
+    }
+  }
 }
