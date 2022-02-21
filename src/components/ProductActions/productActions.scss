@@ -1,0 +1,42 @@
+@import 'styles/abstracts/variables.scss';
+
+.productActions__container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  & > h3 {
+    text-align: center;
+  }
+
+  &__addButton {
+    display: flex;
+    justify-content: center;
+
+    button {
+      background-color: $primary-color;
+      width: 20rem;
+      height: 4rem;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .selected {
+    background-color: lightblue;
+  }
+
+  .buttons_container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .buttons {
+    width: 5rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

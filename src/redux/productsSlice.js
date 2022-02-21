@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchProduct, fetchProductDetail } from 'api';
+import { addToCart, fetchProduct, fetchProductDetail } from 'api';
 
 const initialState = {
   data: [],
   searchValue: '',
   productDetail: {},
+  cartCount: 0,
 };
 
 export const fetchProductsAsync = createAsyncThunk(
@@ -31,23 +32,22 @@ export const fetchProductDetailAsync = createAsyncThunk(
   }
 );
 
+export const sendCartItemsAsync = createAsyncThunk(
+  'cart/sendCartItems',
+  async (items) => {
+    try {
+      const response = await addToCart(items);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
-    },
     searchValue: (state, action) => {
       state.searchValue = action.payload;
     },
@@ -59,11 +59,13 @@ export const productsSlice = createSlice({
     builder.addCase(fetchProductDetailAsync.fulfilled, (state, action) => {
       state.productDetail = action.payload;
     });
+    builder.addCase(sendCartItemsAsync.fulfilled, (state, action) => {
+      state.cartCount = action.payload.count;
+    });
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, searchValue } =
-  productsSlice.actions;
+export const { searchValue } = productsSlice.actions;
 
 export default productsSlice.reducer;
