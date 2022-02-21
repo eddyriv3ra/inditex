@@ -16,8 +16,27 @@
   }
 
   &__icon {
-    width: 2rem;
-    height: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
     color: #e5e7eb;
+  }
+
+  &__cartContainer {
+    position: relative;
+    display: flex;
+  }
+
+  .count {
+    background-color: black;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -20px;
+    top: -5px;
   }
 }

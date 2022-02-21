@@ -1,11 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { addToCart, fetchProduct, fetchProductDetail } from 'api';
+import { fetchProduct, fetchProductDetail } from 'api';
 
 const initialState = {
   data: [],
   searchValue: '',
   productDetail: {},
-  cartCount: 0,
 };
 
 export const fetchProductsAsync = createAsyncThunk(
@@ -32,18 +31,6 @@ export const fetchProductDetailAsync = createAsyncThunk(
   }
 );
 
-export const sendCartItemsAsync = createAsyncThunk(
-  'cart/sendCartItems',
-  async (items) => {
-    try {
-      const response = await addToCart(items);
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-);
-
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
@@ -58,9 +45,6 @@ export const productsSlice = createSlice({
     });
     builder.addCase(fetchProductDetailAsync.fulfilled, (state, action) => {
       state.productDetail = action.payload;
-    });
-    builder.addCase(sendCartItemsAsync.fulfilled, (state, action) => {
-      state.cartCount = action.payload.count;
     });
   },
 });

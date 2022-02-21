@@ -1,15 +1,21 @@
 import { FiShoppingCart } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 
 const Header = () => {
+  const cartCount = useSelector(({ cart }) => cart.cartCount);
+
   return (
-    <nav className="header">
+    <header className="header">
       <Link to="/">
-        <h1 className="header__title">CELLPHONES</h1>
+        <h1 className="header__title">CELLPHONIAN</h1>
       </Link>
-      <FiShoppingCart className="header__icon" />
-    </nav>
+      <div className="header__cartContainer">
+        <span className="count">{cartCount}</span>
+        <FiShoppingCart className="header__icon" />
+      </div>
+    </header>
   );
 };
 

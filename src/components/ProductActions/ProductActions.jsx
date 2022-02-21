@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { sendCartItemsAsync } from 'redux/productsSlice';
+import { sendCartItemsAsync } from 'redux/cartSlice';
 import './productActions.scss';
 
 const storageCode = [{ id: 1 }, { id: 2 }, { id: 3 }];
